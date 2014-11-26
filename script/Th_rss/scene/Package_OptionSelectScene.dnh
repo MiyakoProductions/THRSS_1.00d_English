@@ -492,7 +492,7 @@ task TOptionSelectScene{
 					}
 				}
 				case( 4 ){
-					if( PL < 8 ){
+					if( PL < 4 ){
 						SetAreaCommonData("Option", "Player", PL+1 );
 						SaveCommonDataAreaA1("Option");
 						PlaySEsP( csd ~ "../se/menuselect.ogg" );

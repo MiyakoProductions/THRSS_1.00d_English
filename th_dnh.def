@@ -7,7 +7,7 @@ package.script.main = script/Th_rss/Package.dnh
 //--------------------------------------------------------------
 //ウィンドウタイトル
 //指定したウィンドウタイトルになります。
-window.title = 東方桃源宮　～ Riverbed Soul Saver. ver 1.01d
+window.title = TouHou Tougenkyu　～ Riverbed Soul Saver. ver 1.01d
 
 
 //--------------------------------------------------------------
