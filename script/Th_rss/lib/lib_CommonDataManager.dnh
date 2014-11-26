@@ -1,0 +1,56 @@
+
+
+//　主に共通データの処理
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
+
+task InitializeCommonData(){
+	CreateCommonDataArea("System");
+	SetAreaCommonData("System", "title_place", 0 );		//　選択位置
+	SetAreaCommonData("System", "title_act", 0 );		//　0:ﾀｲﾄﾙ
+	SetAreaCommonData("System", "title_sector", -1 );	//　メインメニュー制御
+	SetAreaCommonData("System", "title_end", false );	//　ﾀｲﾄﾙ終了フラグ
+	SetAreaCommonData("System", "stflg", false );		//　スクリプト起動許可
+	SetAreaCommonData("System", "R_sector", 0 );		//　難易度選択等用
+	SetAreaCommonData("System", "P_sector", 0 );		//　自機選択等用
+	SetAreaCommonData("System", "S_sector", 0 );		//　スペカ選択等用
+	SetAreaCommonData("System", "selectP", 0 );			//　自機専用選択操作
+	SetAreaCommonData("System", "select", 0 );			//　共通選択操作
+	SetAreaCommonData("System", "select2", 0 );			//　共通選択操作2
+	SetAreaCommonData("System", "Difficulty", "NULL" );	//　難易度
+	SetAreaCommonData("System", "player_type", 0 );		//　どの自機か
+	SetAreaCommonData("System", "stg_ST", 0 );			//　どのステージか
+	SetAreaCommonData("System", "spell_ST", 0 );		//　どのスペカを起動するか
+	SetAreaCommonData("System", "StgWorldBreak", true );//　trueでstgシーン関係が消える
+	SetAreaCommonData("System", "ReplayPath", "" );		//　リプレイのパスを保存する
+	SetAreaCommonData("System", "PlayMode", "NULL" );	//　何をプレイ中か
+	SetAreaCommonData("System", "Continue", false );	//　ｺﾝﾃｨﾆｭｰ済みか
+	SetAreaCommonData("System", "Stage_Index", 1 );		//　ステージインデックス
+	SetAreaCommonData("System", "ClearSpellPractice", false );//　ｽﾍﾟﾌﾟﾗでスペルクリアしたか
+	
+	CreateCommonDataArea("Trance");
+	SetAreaCommonData("Trance", "player_fragment", 0 );	//　残機　かけら
+	SetAreaCommonData("Trance", "bomb_fragment", 0 );	//　ボム　かけら
+	SetAreaCommonData("Trance"," BGM_Delete", false );	//　BGM削除
+	SetAreaCommonData("Trance"," BGM_Stop", false );	//　BGMストップ
+	SetAreaCommonData("Trance"," BGM_Play", -1 );		//　BGM再生ナンバー
+	SetAreaCommonData("Trance", "BGM_FadeOut", false );	//　BGMフェードアウト
+	SetAreaCommonData("Trance", "BGM_Delay", 0 );		//　BGMﾃﾞｨﾚｲ
+	SetAreaCommonData("Trance", "max_score", 0 );		//　最高得点
+	SetAreaCommonData("Trance", "High_Score", 0 );		//　ハイスコア
+	
+	CreateCommonDataArea("Time");
+	SetAreaCommonData("Time", "Breakc", 99 );	//　スペカ時間系
+	SetAreaCommonData("Time", "Breakc2", 99 );
+	SetAreaCommonData("Time", "Realc", 99 );
+	SetAreaCommonData("Time", "Realc2", 99 );
+	
+	//　ゲームのセーブデータ
+	LoadCommonDataAreaA2( "SaveData", GetCurrentScriptDirectory() ~ "./../data/Package_common_SaveData.dat" );
+	//　オプション
+	LoadCommonDataAreaA2( "Option", GetCurrentScriptDirectory() ~ "./../data/Package_common_Option.dat" );
+	//　スペルカードプレイ回数
+	LoadCommonDataAreaA2( "spell_counter", GetCurrentScriptDirectory() ~ "./../data/Package_common_spell_counter.dat" );
+	//　スコアボード
+	LoadCommonDataAreaA2( "Score", GetCurrentScriptDirectory() ~ "./../data/Package_common_Score.dat" );
+}
