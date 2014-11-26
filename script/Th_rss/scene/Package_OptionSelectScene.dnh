@@ -170,16 +170,37 @@ task TOptionSelectScene{
 	let list2	= [ BGM, SE, PSvol, SHvol, PL, EC, AUTO_B, S_Style ];
 	let list3	= [
 		//"ゲーム中で流れる音楽の音量を調節します",
-		// Gemu-chu de nagareru ongaku no onryou o   chousetsu  shimasu
-		// Game     in flowing  music  of volume the regulation to you
-		"Regulation of game music volume.",
-		"ゲーム中で流れる効果音の音量を調節します",
-		"自機のショット発射効果音を調節します[r]自機スペルカードの効果音はSE Volが反映されます",
-		"自機のショット着弾効果音を調節します[r]自機スペルカードの効果音はSE Volが反映されます",
-		"プレイヤーの初期の残機数を設定します",
-		"ゲーム中のエフェクトを削減して動作を軽くします[r]数値が高い程効果的です",
-		"自機が被弾した時、ボムを所持していれば自動的にボムを使用します[r]ONにする事によるペナルティは特にありません",
-		"デバッグ用[r]自機が常にパワーアップしている状態で遊ぶことが出来ます",
+			// Gemu-chu de nagareru ongaku no onryou o-chousetsu  shimasu
+			// Game     in flowing  music  of volume adjust       to you
+			"Adjust the volume of music in game.",
+			//"ゲーム中で流れる効果音の音量を調節します",
+			// Geme-chu de nagareru kouka-on     no onryou o-chousetsu  shimasu
+			// game     in flowing sound effect of volume  adjust       to you
+			"Adjust volume of sound effects in game.",
+			//"自機のショット発射効果音を調節します[r]自機スペルカードの効果音はSE Volが反映されます",
+			// Jibata no shotto hassha kouka-on     o-chousetsu shimasu [r] Jibata superukaado no kouka-on     wa  SE Vol ga    han'ei  sa-remasu
+ 			// Aircraft   of shot   launch sound effect adjust       to you  [r] Aircraft    Spell Card  of sound effect the SE Vol there reflect be will
+			"Adjust the volume of your shots.[r]Spell Cards will reflect the sound effect volume.",
+			//"自機のショット着弾効果音を調節します[r]自機スペルカードの効果音はSE Volが反映されます",
+			// Jibata no shotta chakudan kouka-on     o-chousetsu shimasu [r] Jibata superukaado no kouka-on     wa  SE Vol ga    han'ei  sa-remasu
+			// Aircraft    of shot   landing  sound effect adjust      to you  [r] Aircraft    Spell Card  of Sound Effect the SE Vol there reflect be will
+			"Adjust the volume of sound effects when shot.[r]Spell Cards will reflect the sound effect volume.",
+			//"プレイヤーの初期の残機数を設定します",
+			// Pureiyaa no shoki   no zan-ki-suu               o   settei shimasu
+			// Player   of initial of remaining machine number the set    to you
+			"Set the initial amount of player lives.",
+			//"ゲーム中のエフェクトを削減して動作を軽くします[r]数値が高い程効果的です",
+			// Geme-chu no efekuto o   sakugen   shite dousa    o   karuku  shimasu [r] suuchi        ga    takai hodo   kouka-tekidesu
+			// Game     of effect  the reduction to    behavior the lightly to you  [r] Numeric Value there high  degree effective
+			" Reduces the number of effects in gameplay.[r]The higher the number the less effects will render.",
+			//"自機が被弾した時、ボムを所持していれば自動的にボムを使用します[r]ONにする事によるペナルティは特にありません",
+			// Jibata ga    hidan shita toki, bomu o   shojishite ireba  jidoutekini   bomu o   shiyou [r] ON ni suru koto  ni yoru penaruti wa  tokuniarimasen
+			// Aircraft   there hit   was   when, bomb the possession  if put automatically bomb the use    [r] ON to make thing to by   penalty  the in particular, there is no
+			"Automatically uses bombs when hit if in possession of bombs.[r]There is no penalty when ON.",
+			//"デバッグ用[r]自機が常にパワーアップしている状態で遊ぶことが出来ます",
+			// Debaggu-you   [r] Jibata   ga    tsunenu pawaaappu shite iru joutai de asobu koto  ga    dekimasu
+			// For Debugging [r] Aircraft there always  power ups to    are state  in play  thing there can you
+			"For Debugging[r]You can play in a state where you always have full power ups.",
 	];
 	let stc		= 0;
 	let stc_col	= [
@@ -240,11 +261,11 @@ task TOptionSelectScene{
 			"Adjust volume of sound effects in game.",
 			//"自機のショット発射効果音を調節します[r]自機スペルカードの効果音はSE Volが反映されます",
 			// Jibata no shotto hassha kouka-on     o-chousetsu shimasu [r] Jibata superukaado no kouka-on     wa  SE Vol ga    han'ei  sa-remasu
- 			// Self   of shot   launch sound effect adjust       to you  [r] Self    Spell Card  of sound effect the SE Vol there reflect be will
+ 			// Aircraft   of shot   launch sound effect adjust       to you  [r] Aircraft    Spell Card  of sound effect the SE Vol there reflect be will
 			"Adjust the volume of your shots.[r]Spell Cards will reflect the sound effect volume.",
 			//"自機のショット着弾効果音を調節します[r]自機スペルカードの効果音はSE Volが反映されます",
 			// Jibata no shotta chakudan kouka-on     o-chousetsu shimasu [r] Jibata superukaado no kouka-on     wa  SE Vol ga    han'ei  sa-remasu
-			// Self    of shot   landing  sound effect adjust      to you  [r] Self    Spell Card  of Sound Effect the SE Vol there reflect be will
+			// Aircraft    of shot   landing  sound effect adjust      to you  [r] Aircraft    Spell Card  of Sound Effect the SE Vol there reflect be will
 			"Adjust the volume of sound effects when shot.[r]Spell Cards will reflect the sound effect volume.",
 			//"プレイヤーの初期の残機数を設定します",
 			// Pureiyaa no shoki   no zan-ki-suu               o   settei shimasu
@@ -254,7 +275,10 @@ task TOptionSelectScene{
 			// Geme-chu no efekuto o   sakugen   shite dousa    o   karuku  shimasu [r] suuchi        ga    takai hodo   kouka-tekidesu
 			// Game     of effect  the reduction to    behavior the lightly to you  [r] Numeric Value there high  degree effective
 			" Reduces the number of effects in gameplay.[r]The higher the number the less effects will render.",
-			"自機が被弾した時、ボムを所持していれば自動的にボムを使用します[r]ONにする事によるペナルティは特にありません",
+			//"自機が被弾した時、ボムを所持していれば自動的にボムを使用します[r]ONにする事によるペナルティは特にありません",
+			// Jibata ga    hidan shita toki, bomu o   shojishite ireba  jidoutekini   bomu o   shiyou [r] ON ni suru koto  ni yoru penaruti wa  tokuniarimasen
+			// Aircraft   there hit   was   when, bomb the possession  if put automatically bomb the use    [r] ON to make thing to by   penalty  the in particular, there is no
+			"Automatically uses bombs when hit if in possession of bombs.[r]There is no penalty when ON.",
 		];
 	}
 	
